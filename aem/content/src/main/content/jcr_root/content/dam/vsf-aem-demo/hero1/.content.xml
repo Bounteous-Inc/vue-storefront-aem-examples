@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="8f072dca-9169-41ce-b253-7a899e08c768">
+    <jcr:content
+        cq:name="hero1"
+        cq:parentPath="/content/dam/vsf-aem-demo"
+        jcr:lastModified="{Date}2021-06-15T14:43:46.054-07:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Downhill Skiing Wyoming"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2021-06-15T14:43:46.054-07:00">
+        <data
+            cq:model="/conf/vsf-aem-demo/settings/dam/cfm/models/vsf-hero"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                background="#fce4ec"
+                background_x0040_LastModified="{Date}2021-06-14T11:14:34.465-07:00"
+                buttonText="Learn More"
+                buttonText_x0040_LastModified="{Date}2021-06-14T11:13:55.463-07:00"
+                image="/content/dam/vsf-aem-demo/hero1-image"
+                image_x0040_LastModified="{Date}2021-06-15T14:43:17.961-07:00"
+                link="https://www.bounteous.com"
+                link_x0040_LastModified="{Date}2021-06-14T11:14:34.465-07:00"
+                subtitle="Winter Collection 2021"
+                subtitle_x0040_LastModified="{Date}2021-06-15T14:43:17.960-07:00"
+                title="Downhill Skiing Wyoming"
+                title_x0040_LastModified="{Date}2021-06-15T14:43:17.960-07:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -2,13 +2,13 @@
   <div id="home">
     <SfHero class="hero">
       <SfHeroItem
-        v-for="(hero, i) in heroes"
+        v-for="(hero, i) in heroCarouselContent"
         :key="i"
         :title="hero.title"
         :subtitle="hero.subtitle"
         :button-text="hero.buttonText"
         :background="hero.background"
-        :image="hero.image"
+        :image="formatImageOutput(hero.image)"
         :class="hero.className"
       />
     </SfHero>
@@ -35,9 +35,9 @@
     </LazyHydrate>
     <LazyHydrate when-visible>
       <ProductsCarousel
-        :products="newProducts"
-        :loading="newProductsLoading"
-        title="New Products"
+        :products="carouselProducts"
+        :loading="productCarouselLoadingAEM"
+        title="Featured Products"
       />
     </LazyHydrate>
 
@@ -81,6 +81,9 @@ import MobileStoreBanner from '~/components/MobileStoreBanner.vue';
 import InstagramFeed from '~/components/InstagramFeed.vue';
 import ProductsCarousel from '~/components/ProductsCarousel.vue';
 
+// AEM:
+import { useContent, getContentFragmentList, getContentFragment } from '@bounteous/vue-storefront-aem';
+
 export default defineComponent({
   name: 'Home',
   components: {
@@ -108,6 +111,36 @@ export default defineComponent({
       isInCart,
     } = useCart();
 
+    // Hero Carousel AEM
+    const {
+      search: heroCarouselSearch,
+      content: heroCarouselContent,
+      loading: heroCarouselLoading,
+      error: heroCarouselError
+    } = useContent('hero');
+
+    // Get SKUs for the Product Carousel from AEM
+    const {
+      search: productCarouselSearchAEM,
+      content: productCarouselContentAEM,
+      loading: productCarouselLoadingAEM,
+      error: productCarouselErrorAEM
+    } = useContent('productCarouselAEM');
+    // And then query Magento with the provided SKUs
+    const {
+      products: productCarouselResult,
+      search: productCarouselSearchMagento,
+      loading: productCarouselSearchLoading,
+    } = useProduct('productCarouselMagento');
+
+    // Workaround for nested image paths
+    const formatImageOutput = (image) => {
+      return {
+        mobile: image?.mobile._publishUrl,
+        desktop: image?.desktop._publishUrl
+      }
+    }
+
     // @ts-ignore
     const newProducts = computed(() => productGetters.getFiltered(newProductsResult.value?.items, { master: true }));
 
@@ -121,6 +154,57 @@ export default defineComponent({
       });
 
       await loadCart();
+
+      // Hero Carousel AEM
+      const heroCarouselQuery = `
+      {
+        vsfHeroList {
+          items {
+            title
+            subtitle
+            buttonText
+            background
+            link
+            image {
+              mobile {
+                ... on ImageRef {
+                  _publishUrl
+                }
+              }
+              desktop {
+                ... on ImageRef {
+                  _publishUrl
+                }
+              }
+            }
+          }
+        }
+      }
+      `;
+      await heroCarouselSearch({ query: heroCarouselQuery });
+
+      // Product Carousel AEM
+      const productCarouselQuery = `
+      {
+        vsfCarouselProductsByPath(_path: "/content/dam/vsf-aem-demo/homepage-product-carousel") {
+          item {
+            products
+          }
+        }
+      }
+      `;
+      await productCarouselSearchAEM({ query: productCarouselQuery });
+
+      await productCarouselSearchMagento({
+        pageSize: 10,
+        currentPage: 1,
+        filter: {
+          sku: {
+            in: getContentFragment(productCarouselContentAEM.value)?.products
+          },
+        },
+      });
+
     });
 
     return {
@@ -130,6 +214,13 @@ export default defineComponent({
       productGetters,
       addToCart,
       isInCart,
+      heroCarouselContent: computed(() => getContentFragmentList(heroCarouselContent.value)),
+      heroCarouselLoading,
+      heroCarouselError,
+      carouselProducts: computed(() => productCarouselResult.value?.items),
+      productCarouselLoadingAEM,
+      getContentFragmentList,
+      formatImageOutput
     };
   },
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

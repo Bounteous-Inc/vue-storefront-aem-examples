@@ -1,0 +1,6 @@
+{
+    "graphQLOriginUrl": "https://magento.yourdomain.com/graphql",
+    "removeRequestHeaders": [
+        "Cookie"
+    ]
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="1ab0969b-be9a-4c75-aff9-ba03ddbafaa8">
+    <jcr:content
+        cq:lastModified="{Date}2021-06-14T11:14:05.100-07:00"
+        cq:lastModifiedBy="admin"
+        cq:name="hero2"
+        cq:parentPath="/content/dam/vsf-aem-demo"
+        jcr:lastModified="{Date}2021-06-15T14:44:32.943-07:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="San Diego Surf Spots"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2021-06-15T14:44:32.943-07:00">
+        <data
+            cq:model="/conf/vsf-aem-demo/settings/dam/cfm/models/vsf-hero"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                background="#eceff1"
+                background_x0040_LastModified="{Date}2021-06-14T11:13:55.464-07:00"
+                buttonText="Learn More"
+                buttonText_x0040_LastModified="{Date}2021-06-14T11:13:55.463-07:00"
+                image="/content/dam/vsf-aem-demo/hero2-image"
+                image_x0040_LastModified="{Date}2021-06-15T14:44:32.895-07:00"
+                link="https://www.bounteous.com"
+                link_x0040_LastModified="{Date}2021-06-15T14:44:32.895-07:00"
+                subtitle="Summer Collection 2021"
+                subtitle_x0040_LastModified="{Date}2021-06-15T14:44:32.895-07:00"
+                title="San Diego Surf Spots"
+                title_x0040_LastModified="{Date}2021-06-15T14:44:32.894-07:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

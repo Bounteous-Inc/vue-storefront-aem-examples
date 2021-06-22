@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="9458aa4d-cd3a-4416-b70c-423217399dfa">
+    <jcr:content
+        cq:name="hero1-image"
+        cq:parentPath="/content/dam/vsf-aem-demo"
+        jcr:lastModified="{Date}2021-06-15T14:40:01.771-07:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Skiing Image"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2021-06-15T14:40:01.771-07:00">
+        <data
+            cq:model="/conf/vsf-aem-demo/settings/dam/cfm/models/vsf-image"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                desktop="/content/dam/vsf-aem-demo/skiing.jpeg"
+                desktop_x0040_LastModified="{Date}2021-06-15T14:39:45.775-07:00"
+                mobile="/content/dam/vsf-aem-demo/skiing.jpeg"
+                mobile_x0040_LastModified="{Date}2021-06-15T14:39:45.774-07:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

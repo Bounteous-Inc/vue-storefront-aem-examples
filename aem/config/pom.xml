@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ====================================================================== -->
+    <!-- P A R E N T P R O J E C T D E S C R I P T I O N -->
+    <!-- ====================================================================== -->
+    <parent>
+        <groupId>com.bounteous.aem</groupId>
+        <artifactId>vsf-aem-integration-examples-reactor</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T D E S C R I P T I O N -->
+    <!-- ====================================================================== -->
+    <artifactId>vsf-aem-integration-examples.config</artifactId>
+    <packaging>content-package</packaging>
+    <name>Vue Storefront AEM Integration Examples - Config Package</name>
+    <description>Package that provides configuration for the Vue Storefront AEM Integration Examples.</description>
+
+    <!-- ====================================================================== -->
+    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- ====================================================================== -->
+    <build>
+        <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
+        <plugins>
+            <!-- ====================================================================== -->
+            <!-- V A U L T   P A C K A G E   P L U G I N S                              -->
+            <!-- ====================================================================== -->
+            <plugin>
+                <groupId>org.apache.jackrabbit</groupId>
+                <artifactId>filevault-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <group>com.bounteous.aem</group>
+                    <name>vsf-aem-integration-examples.config</name>
+                    <packageType>application</packageType>
+                    <accessControlHandling>merge</accessControlHandling>
+                    <repositoryStructurePackages>
+                        <repositoryStructurePackage>
+                            <groupId>com.bounteous.aem</groupId>
+                            <artifactId>vsf-aem-integration-examples.repository-structure</artifactId>
+                        </repositoryStructurePackage>
+                    </repositoryStructurePackages>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <failOnError>true</failOnError>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.bounteous.aem</groupId>
+            <artifactId>vsf-aem-integration-examples.repository-structure</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+    </dependencies>
+</project>

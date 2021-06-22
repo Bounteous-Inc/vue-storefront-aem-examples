@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="5efccdff-7ae7-45b2-b064-7078d5474e13">
+    <jcr:content
+        cq:lastModified="{Date}2021-06-14T11:32:13.163-07:00"
+        cq:lastModifiedBy="admin"
+        cq:name="hero2-image"
+        cq:parentPath="/content/dam/vsf-aem-demo"
+        jcr:lastModified="{Date}2021-06-15T14:40:45.511-07:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Walking Image"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2021-06-15T14:40:45.511-07:00">
+        <data
+            cq:model="/conf/vsf-aem-demo/settings/dam/cfm/models/vsf-image"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                desktop="/content/dam/vsf-aem-demo/walking.jpeg"
+                desktop_x0040_LastModified="{Date}2021-06-15T14:40:30.734-07:00"
+                mobile="/content/dam/vsf-aem-demo/walking.jpeg"
+                mobile_x0040_LastModified="{Date}2021-06-15T14:40:30.733-07:00"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

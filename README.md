@@ -1,6 +1,6 @@
 # Vue Storefront AEM Integration Examples
 
-This repository demonstrates how to use the Vue Storefront AEM integration with these examples:
+This repository demonstrates how to use the [Vue Storefront AEM integration](https://github.com/Bounteous-Inc/vue-storefront-aem) with these examples:
 
 * Render a [Hero](https://docs.storefrontui.io/?path=/docs/components-organisms-hero--common) with Content Fragment data coming from AEM.
 * Render a [Carousel](https://docs.storefrontui.io/?path=/docs/components-organisms-carousel--common) with a list of Magento products defined in a Content Fragment (via CIF).
@@ -40,6 +40,6 @@ Just note that filtering by SKU might be different for other integrations (see `
 2. Follow the instructions in the VSF README.md to connect VSF to your Magento instance. Confirm that your localhost loads fine.
    See [here](https://docs.vuestorefront.io/v1/guide/installation/magento.html) for more information.
 
-3. Follow the setup instructions in the `@bounteous/vue-storefront-aem` README to install the VSF AEM integration.
+3. Follow the setup instructions in the [@bounteous/vue-storefront-aem](https://github.com/Bounteous-Inc/vue-storefront-aem) README to install the VSF AEM integration.
 
 4. Replace the file `pages/Home.vue` in the VSF codebase with the `vsf/Home.vue` file provided in this repository. It contains the two examples mentioned above.
